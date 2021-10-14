@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-amundsen
+spec:
+  tls:
+    - hosts:
+        - amundsen-test.lab.sspcloud.fr
+  rules:
+    - host: amundsen-test.lab.sspcloud.fr
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: amundsen-frontend
+                port: 
+                  number: 5000

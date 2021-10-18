@@ -377,3 +377,17 @@ elasticsearch:
   #    limits:
   #      cpu: 2
   #      memory: 2Gi
+
+##############  Values for ingress ###############
+ingress:
+  enabled: true
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: amundsen-test.lab.sspcloud.fr
+      paths: [/]
+  tls: 
+    - hosts:
+        - amundsen-test.lab.sspcloud.fr
+     # secretName: chart-example-tls

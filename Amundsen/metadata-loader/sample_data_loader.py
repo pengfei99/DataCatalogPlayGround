@@ -49,7 +49,8 @@ from databuilder.transformer.generic_transformer import (
 
 #es_host = os.getenv('CREDENTIALS_ELASTICSEARCH_PROXY_HOST', 'localhost')
 #neo_host = os.getenv('CREDENTIALS_NEO4J_PROXY_HOST', 'localhost')
-es_host="amundsen-test-elasticsearch-client.user-pengfei.svc.cluster.local"
+# es_host="amundsen-test-elasticsearch-client.user-pengfei.svc.cluster.local"
+es_host="elasticsearch-master.user-pengfei.svc.cluster.local"
 neo_host="amundsen-test-neo4j.user-pengfei.svc.cluster.local"
 
 # es_port = os.getenv('CREDENTIALS_ELASTICSEARCH_PROXY_PORT', 9200)

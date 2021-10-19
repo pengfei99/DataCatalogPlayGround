@@ -348,6 +348,9 @@ neo4j:
 # By default, the ES chart runs with 3,3,2 nodes for master, data, client. Amundsen likely does not need so much,
 # so, this has been tuned down to 1,1,1.
 elasticsearch:
+  # If this set to true, you
+  sysctlInitContainer:
+    enabled: false
   # elasticsearch.enabled -- set this to false, if you want to provide your own ES instance.
   enabled: true
   cluster:
@@ -367,17 +370,17 @@ elasticsearch:
   client:
     # elasticsearch.client.replicas -- only running amundsen on 1 client replica
     replicas: 1
-  #  serviceType: LoadBalancer
+  serviceType: ClusterIP
   #  serviceAnnotations:
   #    external-dns.alpha.kubernetes.io/hostname: amundsen-elasticsearch.dev.teamname.company.com
   #    service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
   #    service.beta.kubernetes.io/aws-load-balancer-type: nlb
-  #  nodeAffinity: high
-  #  resources:
-  #    limits:
-  #      cpu: 2
-  #      memory: 2Gi
-
+  nodeAffinity: high
+  resources:
+    limits:
+      cpu: 4
+      memory: 8Gi
+    
 ##############  Values for ingress ###############
 ingress:
   enabled: true

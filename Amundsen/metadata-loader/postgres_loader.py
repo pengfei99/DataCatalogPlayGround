@@ -29,12 +29,10 @@ from databuilder.publisher.neo4j_csv_publisher import Neo4jCsvPublisher
 from databuilder.task.task import DefaultTask
 from databuilder.transformer.base_transformer import NoopTransformer
 
-es_host = None
-neo_host = None
-if len(sys.argv) > 1:
-    es_host = sys.argv[1]
-if len(sys.argv) > 2:
-    neo_host = sys.argv[2]
+# add es host
+es_host="elasticsearch-master.user-pengfei.svc.cluster.local"
+neo_host="amundsen-test-neo4j.user-pengfei.svc.cluster.local"
+
 
 es = Elasticsearch([
     {'host': es_host if es_host else 'localhost'},
@@ -56,11 +54,12 @@ LOGGER = logging.getLogger(__name__)
 
 # todo: connection string needs to change
 def connection_string():
-    user = 'username'
-    host = 'localhost'
+    user = 'pengfei'
+    pwd= 'test'
+    host = 'postgresql-583865.user-pengfei.svc.cluster.local'
     port = '5432'
-    db = 'postgres'
-    return "postgresql://%s@%s:%s/%s" % (user, host, port, db)
+    db = 'amundsen_test'
+    return "postgresql://%s:%s@%s:%s/%s" % (user, pwd,host, port, db)
 
 
 def run_postgres_job():
@@ -165,3 +164,4 @@ if __name__ == "__main__":
         elasticsearch_doc_type_key='table',
         model_name='databuilder.models.table_elasticsearch_document.TableESDocument')
     job_es_table.launch()
+    

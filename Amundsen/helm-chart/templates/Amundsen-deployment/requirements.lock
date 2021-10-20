@@ -1,6 +1,6 @@
 dependencies:
 - name: elasticsearch
-  repository: https://charts.helm.sh/stable/
-  version: 1.32.0
-digest: sha256:e276930795991abd3772e8008d9ebd3a4389ad100636f8500400a099a07c1994
-generated: "2021-10-14T15:34:49.498386252Z"
+  repository: https://helm.elastic.co
+  version: 7.13.4
+digest: sha256:347fc06877cad52763bc9259bb6790f2c51d7a6badce12d0095369944ac18751
+generated: "2021-10-20T07:26:08.585248913Z"

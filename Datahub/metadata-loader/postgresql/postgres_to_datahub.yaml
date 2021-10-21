@@ -1,0 +1,22 @@
+source:
+  type: postgres
+  config:
+    # Coordinates
+    host_port: postgresql-583865.user-pengfei.svc.cluster.local:5432
+    database: 'amundsen_test'
+
+    # Credentials
+    username: 'pengfei'
+    password: 'test'
+
+    # Options
+    database_alias: 'amundsen_test'
+
+sink:
+  type: "datahub-kafka"
+  config:
+    connection:
+      bootstrap: "prerequisites-kafka.user-pengfei.svc.cluster.local:9092"
+      schema_registry_url: "http://prerequisites-cp-schema-registry.user-pengfei.svc.cluster.local:8081"
+
+# datahub ingest -c postgres_to_datahub.yaml

@@ -10,58 +10,34 @@ As we can only use open source solution. So our possible candidates are:
 - DataHub
 
 
-# Problem with the deployment of Amundsen on k8s
+## 1 Amundsen
 
-## Embeded elastic search chart uses a deprecated version
 
-And the default config requires a higher privilege to create the pods, so it does not work. 
-There are two solutio:
+### 1.1 Amundsen deployment
+
+Problem with the deployment of Amundsen on k8s:
+1. Embeded elastic search chart uses a deprecated version
+2. No ingress support
+
+#### 1.1.1 Migrate the deprecated es 
+We have found out that not only the es is deprecated, but also the default config requires a higher privilege to create the pods. 
+There are two solutions:
 1. change the config to remove the requirement of higher privilege
 2. use a self deployed elasticsearch.
 
-## Change the default config
+##### Change the default config
 
-Add the sysctlInitContainer config and set it to false.
+Add the sysctlInitContainer config and set it to false. But even after this modification, the pod are not running correctly. There are error messages inside it.
 
 ```yaml
 elasticsearch:
-  # If this set to true, you
+  # If this set to true, you will need cluster admin privilege.
   sysctlInitContainer:
     enabled: false
-  # elasticsearch.enabled -- set this to false, if you want to provide your own ES instance.
-  enabled: true
-
 ```
 
-## Use a self deployed elasticsearch
+##### Migraate to the official es k8s repo
+We just modified the Amundsen helm chart to use the official es k8s repo 
 
-Deploy your elasticsearch with a appropiate chart. Then get the uri of the elastic-master service (on port 9200 in general)
 
-
-``` yaml
-# first disable the embeded elasticsearch 
-elasticsearch:
-  # elasticsearch.enabled -- set this to false, if you want to provide your own ES instance.
-  enabled: false
-
-# second add the uri of your self elasticsearch
-search:
-search:
-  # search.serviceName -- The search service name.
-  serviceName: search
-
-  # search.serviceType -- The search service type. See service types [ref](https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types)
-  serviceType: ClusterIP
-
-  # Proxy information needed for the search
-  proxy:
-    # search.proxy.endpoint -- Endpoint of the search proxy (i.e., ES endpoint etc.)
-    # You should only need to change this, if you don't use the version in this chart.
-    endpoint: elasticsearch-master.user-pengfei.svc.cluster.local:9200
-
-    # The user and password of the search proxy. This should only be set if you bring your own proxy or ES cluster in which case you must also set elasticsearch.enabled to false
-    # search.proxy.user --
-    user:
-    # search.proxy.password --
-    password:
-```
+## 2. Datahub

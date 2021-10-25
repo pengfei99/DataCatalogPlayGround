@@ -41,3 +41,6 @@ We just modified the Amundsen helm chart to use the official es k8s repo
 
 
 ## 2. Datahub
+
+### 2.1 Set OIDC auth in datahub frontend
+https://github.com/linkedin/datahub/blob/master/docs/how/auth/sso/configure-oidc-react.md

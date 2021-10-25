@@ -1,0 +1,32 @@
+{
+    "auditHeader": null,
+    "proposedSnapshot": {
+      "com.linkedin.pegasus2avro.metadata.snapshot.CorpUserSnapshot": {
+        "urn": "urn:li:corpuser:pliu1",
+        "aspects": [
+          {
+            "com.linkedin.pegasus2avro.identity.CorpUserInfo": {
+              "active": true,
+              "displayName": {
+                "string": "pengfei liu"
+              },
+              "email": "pengfei@toto.com",
+              "title": {
+                "string": "Engineer"
+              },
+              "managerUrn": "foobar",
+              "departmentId": "01",
+              "departmentName": "IT",
+              "firstName": "Pengfei",
+              "lastName": "Liu",
+              "fullName": {
+                "string": "pengfei liu"
+              },
+              "countryCode": "FR"
+            }
+          }
+        ]
+      }
+    },
+    "proposedDelta": null
+  }

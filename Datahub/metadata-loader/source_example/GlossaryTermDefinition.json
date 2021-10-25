@@ -1,0 +1,35 @@
+{
+    "auditHeader": null,
+    "proposedSnapshot": {
+      "com.linkedin.pegasus2avro.metadata.snapshot.GlossaryTermSnapshot": {
+        "urn": "urn:li:glossaryTerm:CustomerAccount",
+        "aspects": [
+          {
+            "com.linkedin.pegasus2avro.glossary.GlossaryTermInfo": {
+              "definition": "account that represents an identified, named collection of balances and cumulative totals used to summarize customer transaction-related activity over a designated period of time",
+              "parentNode": "urn:li:glossaryNode:ClientsAndAccounts",
+              "sourceRef": "FIBO",
+              "termSource": "EXTERNAL",
+              "sourceUrl": "https://spec.edmcouncil.org/fibo/ontology/FBC/ProductsAndServices/ClientsAndAccounts/CustomerAccount",
+              "customProperties": {
+                "FQDN": "CustomerAccount"
+              }
+            }
+          },
+          {
+            "com.linkedin.pegasus2avro.common.Ownership": {
+              "owners": [{
+                "owner": "urn:li:corpuser:jdoe",
+                "type": "DATAOWNER"
+              }],
+              "lastModified": {
+                "time": 1581407189000,
+                "actor": "urn:li:corpuser:jdoe"
+              }
+            }
+          }
+        ]
+      }
+    },
+  "proposedDelta": null
+}

@@ -1,0 +1,16 @@
+{
+  "typeName": "hive_table",
+  "excludeDeletedEntities": true,
+  "query": "",
+  "limit": 50,
+  "offset": 0,
+  "entityFilters": {
+    "attributeName": "owner",
+    "operator": "eq",
+    "attributeValue": "hive"
+  },
+  "tagFilters": null,
+  "attributes": [
+    ""
+  ]
+}

@@ -28,7 +28,8 @@
         ]
       },
   
-      { "typeName": "kafka_value_message_schema","guid":-500,
+      { "typeName": "kafka_value_message_schema",
+        "guid":-500,
         "createdBy": "ingestors_news",
         "attributes": {
           "qualifiedName": "news_topic.id",
@@ -39,7 +40,8 @@
           "required": true
         }
       },
-      { "typeName": "kafka_value_message_schema","guid":-501,
+      { "typeName": "kafka_value_message_schema",
+        "guid":-501,
         "createdBy": "ingestors_news",
         "attributes": {
           "qualifiedName": "news_topic.scrap_time",
@@ -50,7 +52,8 @@
           "required": true
         }
       },
-      { "typeName": "kafka_value_message_schema","guid":-502,
+      { "typeName": "kafka_value_message_schema",
+        "guid":-502,
         "createdBy": "ingestors_news",
         "attributes": {
           "qualifiedName": "news_topic.url",
@@ -61,7 +64,8 @@
           "required": true
         }
       },
-      { "typeName": "kafka_value_message_schema","guid":-503,
+      { "typeName": "kafka_value_message_schema",
+        "guid":-503,
         "createdBy": "ingestors_news",
         "attributes": {
           "qualifiedName": "news_topic.headline",
@@ -72,7 +76,8 @@
           "required": true
         }
       },
-      { "typeName": "kafka_value_message_schema","guid":-504,
+      { "typeName": "kafka_value_message_schema",
+        "guid":-504,
         "createdBy": "ingestors_news",
         "attributes": {
           "qualifiedName": "news_topic.content",
@@ -144,17 +149,6 @@
         }
       }
     ],
-    "referredEntities": {
-      "-100": {
-        "guid": "-100",
-        "typeName": "server",
-        "attributes": {
-          "qualifiedName": "landing_zone_server_1@dev",
-          "uri": "landing_zone_server_1@dev",
-          "name": "landing_zone_server_1",
-          "dns_name": "pluto",
-          "ip_address": "10.71.68.93"
-        }
-      }
-    }
+    "referredEntities": {}
+    
   }

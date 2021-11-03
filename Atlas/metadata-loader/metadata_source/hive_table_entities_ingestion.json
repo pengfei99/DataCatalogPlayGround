@@ -1,0 +1,45 @@
+{
+    "entities": [
+        {
+            "typeName":"hive_table",
+        "attributes":
+            {
+                "owner":null,
+                "temporary":false,
+                "lastAccessTime":1635894000000,
+                "aliases":[],
+                "replicatedTo":[],
+                "userDescription":null,
+                "replicatedFrom":[],
+                "qualifiedName":"test3",
+                "displayName":null,
+                "columns":[],
+                "description":null,
+                "viewExpandedText":null,
+                "tableType":null,
+                "createTime":1635894000000,
+                "name":"test3",
+                "comment":null,
+                "partitionKeys":[],
+                "parameters":null,
+                "retention":0,
+                "viewOriginalText":null},
+        "isIncomplete":false,
+        "status":"ACTIVE",
+        "createdBy":"pengfei",
+        "updatedBy":"pengfei",
+        "createTime":1635937321039,
+        "updateTime":1635937457367,
+        "version":0,
+        "relationshipAttributes":{
+            "inputToProcesses":[],
+            "schema":[],
+            "ddlQueries":[],
+            "columns":[],
+            "partitionKeys":[],
+            "meanings":[],
+            "outputFromProcesses":[]},
+        "labels":[]
+        }
+    ]
+}

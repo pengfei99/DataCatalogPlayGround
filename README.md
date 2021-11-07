@@ -140,21 +140,42 @@ We also need to define non-functional requirements:
 
 - metadata_audit_log: If it has audit log(creation, modification, deletion) for metadata.
 - usage_metrics: If it provides platform activity metrics(e.g. user id, search query, etc. )
-
 - access_control(Cat:basic, median, advance): If it allows access control on reading and writing metadata. basic means
   grant rights or not, no RBAC support. Median means has RBAC support, but RBAC rule does not have the granularity to
   control individual entity. Advance means has RBAC and granular access control.
   
 - authentication_method(String): List all supported authentication method.
 
+## 3.5 Evaluate tools
+
 |tool_name|customizable_data_description| data_description_visu|grouping_metadata| lineage_metadata| semantic_metadata| 
 | --- |----- |--- |--- |--- |--- |
 |Amundsen|No|Yes|Yes|No|No|
 |Atlas|Yes|Yes|Yes|Yes|Yes|
-|Datahub|Yes|Yes|Yes|Yes-|Yes|
+|Datahub|Yes|Yes|Yes|Yes*|Yes|
 
 |tool_name|search_by_description|search_by_semantic|search_by_lineage|ease_of_deployment|capacity|
 | --- |----- |--- |--- |--- |--- |
-|Amundsen|Yes-|No|No|median|median|
+|Amundsen|Yes*|No|No|median|median|
 |Atlas|Yes|Yes|Yes|hard|large|
-|Datahub|No|Yes|Yes-|hard|large|
+|Datahub|No|Yes|Yes*|hard|large|
+
+|tool_name|metadata_ingestion_method|data_access|catalog_external_data|supported_data_type|collaboration|
+| --- |----- |--- |--- |--- |--- |
+|Amundsen|Python API|No|Yes|DB, table, column|No|
+|Atlas|Python/Java/Rest API, Web UI, automated Hook |No|Yes|All|No|
+|Datahub|Python Client(YAML config), Rest API|No|Yes|All|No|
+
+
+|tool_name|metadata_audit_log| usage_metrics |access_control| authentication_method| 
+| --- |----- |--- |--- |--- |
+|Amundsen|No|No|basic|OIDC|
+|Atlas|Yes|No|median|OIDC,file,Kerberos,ldap,PAM|
+|Datahub|No|Yes|advance|OIDC,JAAS(file,db,ldap)|
+
+
+Note :
+1. Amundsen provides search by description, but only allow five description types: source type(data type), column_name,
+   etc. Unlike Atlas user can use all description to filter data.
+2. Datahub provides lineage metadata, but they collect the lineage metadata only for task lineage. So we don't have
+all the information about produced data. As a result, we can't really search a data by lineage.

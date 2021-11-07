@@ -135,3 +135,8 @@ We welcome contributions from the community. Please refer to our [Contributing G
 ## Community
 
 Join our [slack workspace](https://slack.datahubproject.io) for discussions and important announcements. 
+
+
+
+## Set OIDC auth in datahub frontend
+https://github.com/linkedin/datahub/blob/master/docs/how/auth/sso/configure-oidc-react.md

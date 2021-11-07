@@ -128,8 +128,8 @@ We can summarize the functional requirements into below metrics:
 - search_by_lineage(Boolean): If it allows users to search data by using their lineage
 
 We also need to define non-functional requirements:
-- ease_of_deployment(Cat:easy, median, hard): If it is difficult to deploy and maintain.
-- capacity (Cat:small, median, large): how many data entity can the tool handle (e.g. store and search)? small: 0~500k
+- ease_of_deployment(Cat:easy->1, median->0, hard->-1): If it is difficult to deploy and maintain.
+- capacity (Cat:small->0, median->1, large->2): how many data entity can the tool handle (e.g. store and search)? small: 0~500k
   median: 500k~1 million, large: > 1 million.
 - metadata_ingestion_method(String) : list the supported metadata ingestion method
 - data_access(Boolean): If it allows users to access data directly.
@@ -140,7 +140,7 @@ We also need to define non-functional requirements:
 
 - metadata_audit_log: If it has audit log(creation, modification, deletion) for metadata.
 - usage_metrics: If it provides platform activity metrics(e.g. user id, search query, etc. )
-- access_control(Cat:basic, median, advance): If it allows access control on reading and writing metadata. basic means
+- access_control(Cat:basic->0, median->1, advance->2): If it allows access control on reading and writing metadata. basic means
   grant rights or not, no RBAC support. Median means has RBAC support, but RBAC rule does not have the granularity to
   control individual entity. Advance means has RBAC and granular access control.
   
@@ -148,31 +148,36 @@ We also need to define non-functional requirements:
 
 ## 3.5 Evaluate tools
 
-|tool_name|customizable_data_description| data_description_visu|grouping_metadata| lineage_metadata| semantic_metadata| 
-| --- |----- |--- |--- |--- |--- |
-|Amundsen|No|Yes|Yes|No|No|
-|Atlas|Yes|Yes|Yes|Yes|Yes|
-|Datahub|Yes|Yes|Yes|Yes*|Yes|
+|tool_name|customizable_data_description| data_description_visu|grouping_metadata| lineage_metadata| semantic_metadata| score |
+| --- |----- |--- |--- |--- |--- | ---|
+|Amundsen|No|Yes|Yes|No|No| 2 |
+|Atlas|Yes|Yes|Yes|Yes|Yes| 5|
+|Datahub|Yes|Yes|Yes|Yes*|Yes| 5|
 
-|tool_name|search_by_description|search_by_semantic|search_by_lineage|ease_of_deployment|capacity|
-| --- |----- |--- |--- |--- |--- |
-|Amundsen|Yes*|No|No|median|median|
-|Atlas|Yes|Yes|Yes|hard|large|
-|Datahub|No|Yes|Yes*|hard|large|
+|tool_name|search_by_description|search_by_semantic|search_by_lineage|ease_of_deployment|capacity| score |
+| --- |----- |--- |--- |--- |--- | ---|
+|Amundsen|Yes*|No|No|median|median|1.5|
+|Atlas|Yes|Yes|Yes|hard|large|4|
+|Datahub|No|Yes|Yes*|hard|large|2.5|
 
-|tool_name|metadata_ingestion_method|data_access|catalog_external_data|supported_data_type|collaboration|
-| --- |----- |--- |--- |--- |--- |
-|Amundsen|Python API|No|Yes|DB, table, column|No|
-|Atlas|Python/Java/Rest API, Web UI, automated Hook |No|Yes|All|No|
-|Datahub|Python Client(YAML config), Rest API|No|Yes|All|No|
+|tool_name|metadata_ingestion_method|data_access|catalog_external_data|supported_data_type|collaboration|score |
+| --- |----- |--- |--- |--- |--- |---|
+|Amundsen|Python API|No|Yes|DB, table, column|No|3|
+|Atlas|Python/Java/Rest API, Web UI, automated Hook |No|Yes|All|No|5|
+|Datahub|Python Client(YAML config), Rest API|No|Yes|All|No|4.5|
 
 
-|tool_name|metadata_audit_log| usage_metrics |access_control| authentication_method| 
-| --- |----- |--- |--- |--- |
-|Amundsen|No|No|basic|OIDC|
-|Atlas|Yes|No|median|OIDC,file,Kerberos,ldap,PAM|
-|Datahub|No|Yes|advance|OIDC,JAAS(file,db,ldap)|
+|tool_name|metadata_audit_log| usage_metrics |access_control| authentication_method| score |
+| --- |----- |--- |--- |--- |---|
+|Amundsen|No|No|basic|OIDC|1|
+|Atlas|Yes|No|median|OIDC,file,Kerberos,ldap,PAM|4|
+|Datahub|No|Yes|advance|OIDC,JAAS(file,db,ldap)|5|
 
+|tool_name|Total_score|
+| --- |----- |
+|Amundsen|7.5|
+|Atlas|18|
+|Datahub|17|
 
 Note :
 1. Amundsen provides search by description, but only allow five description types: source type(data type), column_name,

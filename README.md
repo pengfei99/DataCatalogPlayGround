@@ -129,7 +129,7 @@ We can summarize the functional requirements into below metrics:
 
 We also need to define non-functional requirements:
 - ease_of_deployment(Cat:easy->1, median->0, hard->-1): If it is difficult to deploy and maintain.
-- capacity (Cat:small->0, median->1, large->2): how many data entity can the tool handle (e.g. store and search)? small: 0-500k
+- capacity (Cat:small->0, median->1, large->2): how many data entity can the tool handle (e.g. store and search)? small: 0-500k,
   median: 500k-1 million, large: > 1 million.
 - metadata_ingestion_method(String) : list the supported metadata ingestion method
 - data_access(Boolean): If it allows users to access data directly.

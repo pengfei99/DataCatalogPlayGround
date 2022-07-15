@@ -87,7 +87,7 @@ de cada herramienta, debemos saber qué herramienta es la mejor solución para s
 ### 3.1 Nuestro alcance
 
 Reducimos nuestro alcance a **gestión de metadatos**. Por lo tanto, no abordaremos problemas como la validación de datos, la seguridad, etc. Si usted
-no están familiarizados con los cinco dominios de la gestión de datos, visite este [página](https://github.com/pengfei99/DataGovernance/blob/main/README.md)
+no están familiarizados con los cinco dominios de la gestión de datos, visite este [página](https://github.com/johnfelipe/DataGovernance/blob/main/README-es.md)
 
 ### 3.2 Identificar los puntos débiles
 

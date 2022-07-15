@@ -13,7 +13,7 @@ Como solo podemos utilizar la solución de código abierto. Así que nuestros po
 *   Márquez (Aún no probado)
 
 Si no está familiarizado con la terminología, como el gobierno de datos, la gestión de datos y la gestión de metadatos. Por favor, vaya
-a esto [página](https://github.com/pengfei99/DataGovernance/blob/main/README.md)
+a esto [página](https://github.com/johnfelipe/DataGovernance/blob/main/README-es.md)
 
 ## 1. Soluciones existentes
 

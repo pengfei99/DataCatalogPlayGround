@@ -9,6 +9,7 @@ As we can only use open source solution. So our possible candidates are:
 - Atlas
 - Amundsen
 - DataHub
+- [open-metadata](https://github.com/open-metadata/OpenMetadata)
 - Marquez (Not tested yet)
 
 If you are not familliar with the terminology such as data governance, data management and metadata management. Please go
@@ -184,3 +185,8 @@ Note :
    etc. Unlike Atlas user can use all description to filter data.
 2. Datahub provides lineage metadata, but they collect the lineage metadata only for task lineage. So we don't have
 all the information about produced data. As a result, we can't really search a data by lineage.
+
+
+## New comer
+
+[Open-metadata](https://github.com/open-metadata/OpenMetadata) looks very promising. It has all the feature as Atlas. It supports k8s officially ([helm chart](https://docs.open-metadata.org/deployment/kubernetes) provided). Need to test it with more details and add it to the score board. 

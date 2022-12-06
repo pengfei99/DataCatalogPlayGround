@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-amundsen
+spec:
+  tls:
+    - hosts:
+        - amundsen-neoforj.lab.sspcloud.fr
+  rules:
+    - host: amundsen-neoforj.lab.sspcloud.fr
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: amundsen-test-neo4j
+                port: 
+                  number: 7474

@@ -1,0 +1,85 @@
+{
+  "entityDefs" : [
+
+    {
+      "superTypes" : [ "DataSet" ],
+      "category" : "ENTITY",
+      "name" : "dcat_source",
+      "description" : "a type definition for test",
+      "typeVersion" : "1.0",
+      "attributeDefs" : [
+        {
+          "name" : "dct:title",
+          "typeName" : "string",
+          "isOptional" : false,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : true,
+          "isIndexable" : true
+        }
+       ,{
+          "name" : "dct:identifier",
+          "typeName" : "string",
+          "isOptional" : false,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : true,
+          "isIndexable" : true
+        }
+       ,{
+          "name" : "dct:issued",
+          "typeName" : "string",
+          "isOptional" : false,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : false,
+          "isIndexable" : false
+        }
+       ,{
+          "name" : "dct:creator",
+          "typeName" : "string",
+          "isOptional" : false,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : false,
+          "isIndexable" : false
+        }
+       ,{
+          "name" : "dct:language",
+          "typeName" : "string",
+          "isOptional" : false,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : false,
+          "isIndexable" : false
+        }
+       ,{
+          "name" : "dct:rights",
+          "typeName" : "string",
+          "isOptional" : true,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : false,
+          "isIndexable" : false
+        }
+      ,{
+          "name" : "dcat:keyword",
+          "typeName" : "string",
+          "isOptional" : false,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : false,
+          "isIndexable" : false
+        }
+
+      ]
+    }
+  ]
+}

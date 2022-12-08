@@ -3,7 +3,7 @@
     {
       "superTypes" : [ "Process" ],
       "category" : "ENTITY",
-      "name" : "python_script",
+      "name" : "pengfei_script",
       "description" : "a type definition for python script",
       "typeVersion" : "1.0",
       "attributeDefs" : [

@@ -1,0 +1,11 @@
+source:
+  type: file
+  config:
+    # Coordinates
+    filename: "/home/onyxia/work/DataCatalogPlayGround/Datahub/metadata-loader/source_example/demo_data.json"
+sink:
+  type: "datahub-kafka"
+  config:
+    connection:
+      bootstrap: "prerequisites-kafka.user-pengfei.svc.cluster.local:9092"
+      schema_registry_url: "http://prerequisites-cp-schema-registry.user-pengfei.svc.cluster.local:8081"

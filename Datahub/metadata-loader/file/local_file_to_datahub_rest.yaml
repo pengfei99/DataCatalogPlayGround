@@ -1,0 +1,9 @@
+source:
+  type: file
+  config:
+    # Coordinates
+    filename: "/home/onyxia/work/DataCatalogPlayGround/Datahub/metadata-loader/source_example/GlossaryTermDefinition.json"
+sink:
+  type: "datahub-rest"
+  config:
+    server: "http://datahub-datahub-gms.user-pengfei.svc.cluster.local:8080"

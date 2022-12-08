@@ -92,6 +92,42 @@ With this values file, you can then install Amundsen using Helm 2 with:
 
 If you want to know how the data are stored in Neo4j, you can use the [ingress_neo4j.yaml](./helm/ingress_neo4j.yaml) to create an url for the Neo4j server. Then you 
 
+## 1.3 Load sample data to Amundsen
+
+To load sample data, you need to build a python enviroment
+
+```shell
+# create an env with conda
+conda create -n amundsen python=3.8
+
+# check the env
+conda env list
+
+# activate the env
+conda activate amundsen
+
+# git clone the amundsen repo,
+git clone https://github.com/amundsen-io/amundsen.git
+
+# go to the databuilder folder
+cd /path/to/amundsen/databuilder
+
+# you should see below contents
+CHANGELOG.md  docs     LICENSE   MANIFEST.in  README.md             requirements.txt  setup.py
+databuilder   example  Makefile  NOTICE       requirements-dev.txt  setup.cfg         tests
+
+# install the requirements
+pip install -r requirements.txt
+
+# 
+python setup.py install
+
+# run the loading script
+python example/scripts/sample_data_loader.py
+```
+
+# 
+
 ## Other Notes
 
 - For aws setup, you will also need to setup the [external-dns plugin](https://github.com/kubernetes-incubator/external-dns)

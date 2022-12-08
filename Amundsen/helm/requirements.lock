@@ -1,0 +1,9 @@
+dependencies:
+- name: common
+  repository: https://charts.bitnami.com/bitnami
+  version: 1.17.1
+- name: elasticsearch
+  repository: https://helm.elastic.co
+  version: 7.13.4
+digest: sha256:d545af1e04d6cfdbf5f9ad966b31eeccee9e864bf076710f5ce0aff107e15f50
+generated: "2022-12-06T13:11:18.626307325Z"

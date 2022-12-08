@@ -2,15 +2,15 @@ source:
   type: postgres
   config:
     # Coordinates
-    host_port: postgresql-583865.user-pengfei.svc.cluster.local:5432
-    database: 'amundsen_test'
+    host_port: postgresql-511542.user-pengfei.svc.cluster.local:5432
+    database: 'defaultdb'
 
     # Credentials
-    username: 'pengfei'
-    password: 'test'
+    username: 'user-pengfei'
+    password: 'changeMe'
 
     # Options
-    database_alias: 'amundsen_test'
+    database_alias: 'defaultdb'
 
 sink:
   type: "datahub-kafka"

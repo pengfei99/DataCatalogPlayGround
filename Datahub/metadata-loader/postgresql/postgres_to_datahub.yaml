@@ -20,3 +20,4 @@ sink:
       schema_registry_url: "http://prerequisites-cp-schema-registry.user-pengfei.svc.cluster.local:8081"
 
 # datahub ingest -c postgres_to_datahub.yaml
+

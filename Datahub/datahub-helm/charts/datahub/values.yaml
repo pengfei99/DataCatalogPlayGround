@@ -14,14 +14,14 @@ datahub-frontend:
   
   # Set up ingress to expose react front-end, set this to true if you want
   ingress:
-    enabled: false
+    enabled: true
     apiVersion: networking.k8s.io/v1
     hosts:
-      - host: datahub-test.lab.sspcloud.fr
+      - host: datahub.lab.sspcloud.fr
         paths: [/]
     tls: 
       - hosts:
-        - datahub-test.lab.sspcloud.fr
+        - datahub.lab.sspcloud.fr
       # secretName: chart-example-tls
 
 

@@ -1,4 +1,11 @@
-# DataHub Kubernetes Helm Charts
+# Datahub
+DataHub is a modern data catalog built to enable end-to-end data discovery, data observability, and data governance. This extensible metadata platform is built for developers to tame the complexity of their rapidly evolving data ecosystems and for data practitioners to leverage the total value of data within their organization.
+
+For the full feature list, you can visit this [page](https://datahubproject.io/docs/features)
+
+[RoadMap 2022] https://feature-requests.datahubproject.io/roadmap/552
+
+## DataHub Kubernetes Helm Charts
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/datahub)](https://artifacthub.io/packages/search?repo=datahub)
 
 ## Introduction

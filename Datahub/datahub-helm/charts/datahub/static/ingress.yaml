@@ -5,9 +5,9 @@ metadata:
 spec:
   tls:
     - hosts:
-        - datahub-test.lab.sspcloud.fr
+        - datahub.lab.sspcloud.fr
   rules:
-    - host: datahub-test.lab.sspcloud.fr
+    - host: datahub.lab.sspcloud.fr
       http:
         paths:
           - path: /

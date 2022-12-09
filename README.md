@@ -190,3 +190,8 @@ all the information about produced data. As a result, we can't really search a d
 ## New comer
 
 [Open-metadata](https://github.com/open-metadata/OpenMetadata) looks very promising. It has all the feature as Atlas. It supports k8s officially ([helm chart](https://docs.open-metadata.org/deployment/kubernetes) provided). Need to test it with more details and add it to the score board. 
+
+
+## Good article to read 
+
+https://engineering.linkedin.com/blog/2020/datahub-popular-metadata-architectures-explained

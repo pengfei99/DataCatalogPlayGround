@@ -1,0 +1,11 @@
+{
+  "typeName": "hdfs_path",
+  "excludeDeletedEntities": true,
+  "query": "",
+  "limit": 50,
+  "offset": 0,
+  "tagFilters": null,
+  "attributes": [
+    ""
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "typeName": "hdfs_path",
-  "excludeDeletedEntities": true,
+  "excludeDeletedEntities": false,
   "query": "",
   "limit": 50,
   "offset": 0,

@@ -1,5 +1,5 @@
 {
-  "typeName": "hive_table",
+  "typeName": "spark_process",
   "excludeDeletedEntities": true,
   "query": "",
   "limit": 50,

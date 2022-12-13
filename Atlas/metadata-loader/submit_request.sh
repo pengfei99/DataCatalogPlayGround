@@ -10,16 +10,17 @@ url2="https://atlas.lab.sspcloud.fr/api/atlas/v2"
 # All the entities that you deleted by using the Atlas frontend are not really deleted, Atlas just set their status as deleted.
 # They are still in the database. To purge them completely, you need to use the following command
 # You need to replace the last two uid by the uid of the entity that you want to delete.
+# Note the purge endpoint url is different from other standard endpoint.
 
-#curl -X PUT "${url}/admin/purge/" \
-#-H 'Content-Type: application/json' \
-#-H 'Accept: application/json' \
-#-H "Authorization: Bearer ${oidc_token}" \
-#-d '["b9355eab-bbf5-4cd6-b711-12f85a3e9d01", "9fed31f5-0a27-40dc-ba97-96d153fc297b"]'
+curl -X PUT "${url2}/admin/purge/" \
+-H 'Content-Type: application/json' \
+-H 'Accept: application/json' \
+-H "Authorization: Bearer ${oidc_token}" \
+-d '["b9355eab-bbf5-4cd6-b711-12f85a3e9d01", "9fed31f5-0a27-40dc-ba97-96d153fc297b"]'
 
 ########################################### Search example #################################################
 # curl -iv -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' \
-# -H "Authorization: Bearer ${oidc_token}" "$url2/search/basic" -d '@./metadata_source/searchCondClassification.json'
+# -H "Authorization: Bearer ${oidc_token}" "$url2/search/basic" -d '@./metadata_source/searchCond.json'
 
 
 # get all entities of type hive_table
@@ -63,5 +64,9 @@ url2="https://atlas.lab.sspcloud.fr/api/atlas/v2"
 # curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H "Authorization: Bearer ${oidc_token}" "$url2/entity/bulk" -d "@./metadata_source/hive_table_entities_ingestion.json"
 
 ################################ Delete example ######################################################
-curl -X DELETE -H 'Content-Type: application/json' -H 'Accept: application/json' -H "Authorization: Bearer ${oidc_token}" "$url2/types/typedef/name/pengfei_script" 
 
+# delete typedef 
+# curl -X DELETE -H 'Content-Type: application/json' -H 'Accept: application/json' -H "Authorization: Bearer ${oidc_token}" "$url2/types/typedef/name/pengfei_script" 
+
+# delete entity
+curl -X DELETE -H 'Content-Type: application/json' -H 'Accept: application/json' -H "Authorization: Bearer ${oidc_token}" "https://atlas.apache.org/api/v2/api/atlas/v2/entity/guid/undefined"

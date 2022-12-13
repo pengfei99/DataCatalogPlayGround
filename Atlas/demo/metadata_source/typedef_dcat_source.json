@@ -1,0 +1,105 @@
+{
+  "entityDefs" : [
+
+    {
+      "category" : "ENTITY",
+      "name" : "dcat_resource",
+      "description" : "a type definition for test",
+      "typeVersion" : "1.0",
+      "attributeDefs" : [
+        {
+          "name" : "dct:contactPoint",
+          "typeName" : "string",
+          "isOptional" : false,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : false,
+          "isIndexable" : true
+        },
+        {
+          "name" : "dcat:keyword",
+          "typeName" : "string",
+          "isOptional" : true,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : false,
+          "isIndexable" : false
+        },
+
+        {
+          "name" : "dct:landingPage",
+          "typeName" : "string",
+          "isOptional" : false,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : true,
+          "isIndexable" : true
+        },
+       
+        {
+          "name" : "dct:title",
+          "typeName" : "string",
+          "isOptional" : false,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : true,
+          "isIndexable" : true
+        }
+       ,{
+          "name" : "dct:identifier",
+          "typeName" : "string",
+          "isOptional" : false,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : true,
+          "isIndexable" : true
+        }
+       ,{
+          "name" : "dct:issued",
+          "typeName" : "string",
+          "isOptional" : true,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : false,
+          "isIndexable" : false
+        }
+       ,{
+          "name" : "dct:creator",
+          "typeName" : "string",
+          "isOptional" : true,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : false,
+          "isIndexable" : false
+        }
+       ,{
+          "name" : "dct:language",
+          "typeName" : "string",
+          "isOptional" : true,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : false,
+          "isIndexable" : false
+        }
+       ,{
+          "name" : "dct:rights",
+          "typeName" : "string",
+          "isOptional" : true,
+          "cardinality" : "SINGLE",
+          "valuesMinCount" : 1,
+          "valuesMaxCount" : 1,
+          "isUnique" : false,
+          "isIndexable" : false
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+    "entities": [
+        {
+            "typeName":"hdfs_path",
+        "attributes":
+            {
+                "owner":"pengfei",
+                "temporary":false,
+                "lastAccessTime":1635894500000,
+                "qualifiedName":"hdfs://pengfei.org:9000/data/demo.parquet",
+                
+                "createTime":1635894100000,
+                "name":"demo.parquet",
+                "path":"/data/demo.parquet"
+                },
+        "isIncomplete":false,
+        "status":"ACTIVE",
+        "createdBy":"pengfei",
+        "updatedBy":"pengfei",
+        "createTime":1635937321039,
+        "updateTime":1635937457367,
+        "version":0,
+        "labels":[]
+        }
+    ]
+}

@@ -1,0 +1,16 @@
+{
+  "typeName": "hdfs_path",
+  "excludeDeletedEntities": false,
+  "query": "",
+  "limit": 50,
+  "offset": 0,
+  "entityFilters": {
+    "attributeName": "name",
+    "operator": "eq",
+    "attributeValue": "generated.parquet"
+  },
+  "tagFilters": null,
+  "attributes": [
+    ""
+  ]
+}

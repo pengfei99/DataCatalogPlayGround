@@ -4,10 +4,36 @@ oidc_token="eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJhUHNCSzhYRC1od1gt
 
 url="https://atlas.lab.sspcloud.fr/api/atlas/v2"
 
-# find an entity of type hdfs_path
+# 1. insert an entity (hdfs)
+# curl -negotiate -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H "Authorization: Bearer ${oidc_token}" "$url/entity/bulk" -d "@./metadata_source/hdfs_path.json"
+
+# 2. find an entity of type hdfs_path
 # curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' \
 # -H "Authorization: Bearer ${oidc_token}" "$url/search/basic" -d '@./metadata_source/searchAll.json'
 
-# delete an entity
-# entity_guid="196890cc-097e-4904-a99c-d1ff79cf4bb6"
+# 3. find an entity of type hdfs_path with specific name
+# curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' \
+# -H "Authorization: Bearer ${oidc_token}" "$url/search/basic" -d '@./metadata_source/searchWithFilter.json'
+
+
+# 4. delete an entity
+# entity_guid=""
 # curl -X DELETE -H 'Content-Type: application/json' -H 'Accept: application/json' -H "Authorization: Bearer ${oidc_token}" "$url/entity/guid/${entity_guid}"
+
+# 5. purge uses a special url 
+# curl -X PUT "https://atlas.lab.sspcloud.fr/api/atlas/admin/purge/" \
+# -H 'Content-Type: application/json' \
+# -H 'Accept: application/json' \
+# -H "Authorization: Bearer ${oidc_token}" \
+# -d '[""]'
+
+# 6. Create a DCAT model
+# curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H "Authorization: Bearer ${oidc_token}" "$url/types/typedefs" -d "@./metadata_source/typedef_dcat_source.json"
+
+# curl -X POST -H 'Content-Type: application/json' -H 'Accept: application/json' -H "Authorization: Bearer ${oidc_token}" "$url/types/typedefs" -d "@./metadata_source/typedef_dcat_dataset.json"
+
+# 7. delete DCAT model
+
+# curl -X DELETE -H 'Content-Type: application/json' -H 'Accept: application/json' -H "Authorization: Bearer ${oidc_token}" "$url/types/typedef/name/dcat_dataset"
+
+# curl -X DELETE -H 'Content-Type: application/json' -H 'Accept: application/json' -H "Authorization: Bearer ${oidc_token}" "$url/types/typedef/name/dcat_resource"

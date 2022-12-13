@@ -2,76 +2,36 @@
   "entityDefs" : [
 
     {
-      "superTypes" : [ "DataSet" ],
+      "superTypes" : [ "dcat_resource" ],
       "category" : "ENTITY",
-      "name" : "dcat_source",
+      "name" : "dcat_dataset",
       "description" : "a type definition for test",
       "typeVersion" : "1.0",
       "attributeDefs" : [
         {
-          "name" : "dct:title",
+          "name" : "dcat:distribution",
           "typeName" : "string",
           "isOptional" : false,
           "cardinality" : "SINGLE",
           "valuesMinCount" : 1,
           "valuesMaxCount" : 1,
-          "isUnique" : true,
+          "isUnique" : false,
           "isIndexable" : true
         }
        ,{
-          "name" : "dct:identifier",
+          "name" : "dcat:spatialResolutionInMeters",
           "typeName" : "string",
           "isOptional" : false,
           "cardinality" : "SINGLE",
           "valuesMinCount" : 1,
           "valuesMaxCount" : 1,
-          "isUnique" : true,
+          "isUnique" : false,
           "isIndexable" : true
         }
        ,{
-          "name" : "dct:issued",
-          "typeName" : "string",
-          "isOptional" : false,
-          "cardinality" : "SINGLE",
-          "valuesMinCount" : 1,
-          "valuesMaxCount" : 1,
-          "isUnique" : false,
-          "isIndexable" : false
-        }
-       ,{
-          "name" : "dct:creator",
-          "typeName" : "string",
-          "isOptional" : false,
-          "cardinality" : "SINGLE",
-          "valuesMinCount" : 1,
-          "valuesMaxCount" : 1,
-          "isUnique" : false,
-          "isIndexable" : false
-        }
-       ,{
-          "name" : "dct:language",
-          "typeName" : "string",
-          "isOptional" : false,
-          "cardinality" : "SINGLE",
-          "valuesMinCount" : 1,
-          "valuesMaxCount" : 1,
-          "isUnique" : false,
-          "isIndexable" : false
-        }
-       ,{
-          "name" : "dct:rights",
+          "name" : "dcat:temporalResolution",
           "typeName" : "string",
           "isOptional" : true,
-          "cardinality" : "SINGLE",
-          "valuesMinCount" : 1,
-          "valuesMaxCount" : 1,
-          "isUnique" : false,
-          "isIndexable" : false
-        }
-      ,{
-          "name" : "dcat:keyword",
-          "typeName" : "string",
-          "isOptional" : false,
           "cardinality" : "SINGLE",
           "valuesMinCount" : 1,
           "valuesMaxCount" : 1,

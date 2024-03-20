@@ -198,3 +198,10 @@ networks:
         - subnet: "172.16.240.0/24"
 
 ```
+
+After this you need to restart the ingestion container, and rerun the Airflow dag `sample_data`. You should see a 
+database `ecommerce_db`, a schema `shopify` and a few tables are loaded to the openmetadata server. 
+These sample data is a dimensional model for an e-commerce website called `Shopify`.
+
+Once the DAG is run, you can run the `lineage_tutorial_operator` DAG, which will fetch lineage metadata for 
+that dimensional model into OpenMetadata.

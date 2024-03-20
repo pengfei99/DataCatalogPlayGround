@@ -137,5 +137,64 @@ with DAG(
     )
 ```
 
-If you encounter the `file not found error of /home/airflow/ingestion/examples/sample_data`. you need to get the sample
-data from the repo git 
+If you encounter the `file not found error of /home/airflow/ingestion/examples/sample_data`. you need to download 
+the sample data from their repo git (https://github.com/open-metadata/OpenMetadata/tree/main/ingestion/examples).
+
+And modify the docker compose file of the openMetadata deployment by adding a host volume to the ingestion container.
+Below is an example of the new ingestion service. You can notice that I have added a host volume
+`- /home/pliu/Documents/OpenMetadata/ingestion:/home/airflow/ingestion:ro` in read only.
+
+```yaml
+ingestion:
+    container_name: openmetadata_ingestion
+    image: docker.getcollate.io/openmetadata/ingestion:1.3.1
+    depends_on:
+      elasticsearch:
+        condition: service_started
+      postgresql:
+        condition: service_healthy
+      openmetadata-server:
+        condition: service_started
+    environment:
+      AIRFLOW__API__AUTH_BACKENDS: "airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session"
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__OPENMETADATA_AIRFLOW_APIS__DAG_GENERATED_CONFIGS: "/opt/airflow/dag_generated_configs"
+      DB_HOST: ${AIRFLOW_DB_HOST:-postgresql}
+      DB_PORT: ${AIRFLOW_DB_PORT:-5432}
+      AIRFLOW_DB: ${AIRFLOW_DB:-airflow_db}
+      DB_USER: ${AIRFLOW_DB_USER:-airflow_user}
+      DB_SCHEME: ${AIRFLOW_DB_SCHEME:-postgresql+psycopg2}
+      DB_PASSWORD: ${AIRFLOW_DB_PASSWORD:-airflow_pass}
+      # extra connection-string properties for the database
+      # EXAMPLE 
+      # require SSL (only for Postgres)
+      # properties: "?sslmode=require"
+      DB_PROPERTIES: ${AIRFLOW_DB_PROPERTIES:-}
+      # To test the lineage backend
+      # AIRFLOW__LINEAGE__BACKEND: airflow_provider_openmetadata.lineage.backend.OpenMetadataLineageBackend
+      # AIRFLOW__LINEAGE__AIRFLOW_SERVICE_NAME: local_airflow
+      # AIRFLOW__LINEAGE__OPENMETADATA_API_ENDPOINT: http://openmetadata-server:8585/api
+      # AIRFLOW__LINEAGE__JWT_TOKEN: ...
+    entrypoint: /bin/bash
+    command:
+      - "/opt/airflow/ingestion_dependency.sh"
+    expose:
+      - 8080
+    ports:
+      - "8080:8080"
+    networks:
+      - app_net
+    volumes:
+      - ingestion-volume-dag-airflow:/opt/airflow/dag_generated_configs
+      - ingestion-volume-dags:/opt/airflow/dags
+      - ingestion-volume-tmp:/tmp
+      - /home/pliu/Documents/OpenMetadata/ingestion:/home/airflow/ingestion:ro
+
+networks:
+  app_net:
+    ipam:
+      driver: default
+      config:
+        - subnet: "172.16.240.0/24"
+
+```

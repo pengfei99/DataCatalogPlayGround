@@ -113,7 +113,7 @@ git clone https://github.com/amundsen-io/amundsen.git
 cd /path/to/amundsen/databuilder
 
 # you should see below contents
-CHANGELOG.md  docs     LICENSE   MANIFEST.in  README.md             requirements.txt  setup.py
+CHANGELOG.md  docs     LICENSE   MANIFEST.in  01.QuickStart.md             requirements.txt  setup.py
 databuilder   example  Makefile  NOTICE       requirements-dev.txt  setup.cfg         tests
 
 # install the requirements

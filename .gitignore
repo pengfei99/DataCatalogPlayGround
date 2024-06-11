@@ -1,3 +1,4 @@
 creds.txt
 .idea
-creds/
+/creds
+*.creds

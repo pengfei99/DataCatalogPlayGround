@@ -10,11 +10,42 @@ docker --version
 docker compose version
 ```
 
-## Architecture overview 
+## 1. Architecture overview 
 
-Hardware requirements
+The docker compose spec of the openmetadata(OM) will create four containers:
+- OM web app : requires 2vcore and 6GiB
+- database(postgres or mysql) : 2 vcore and 4GiB memory and 100GiB storage volume
+- elasticsearch: 2 vcore and 4GiB memory and 30GiB storage volume
+- ingestion server(airflow, OM python packages): 2 vcore and 4GiB memory and 10GiB storage volume
 
-We recommend you to have a server(vm) which has `8core and 16GB memory`
+Below figures shows which port the services will be exposed
+![om_docker_architecture.png](../../../img/om_docker_architecture.png)
+
+
+> To run the docker compose, we recommend you to have a server(vm) which has `8vcore, 20GiB memory and 200GiB` for 
+> minimum running.
+
+## 2. Deployment steps
+
+### 2.1 Get the docker compose file
+
+You can download the `Docker Compose files` from the [Releases](https://github.com/open-metadata/OpenMetadata/releases/).
+
+Currently,(20/06/2024), you should find four docker compose file in the release assets:
+- **docker-compose-openmetadata.yml**: contains only two docker compose services: `openMetadata-server` and `execute-migrate-all`
+- **docker-compose-ingestion.yml**: contains only one compose service: `ingestion`
+- **docker-compose.yml**: contains five services: `mysql`, `elasticsearch`,`ingestion`,`openMetadata-server` and `execute-migrate-all`
+- **docker-compose-postgres.yml**: contains five services: `postgres`, `elasticsearch`,`ingestion`,`openMetadata-server` and `execute-migrate-all`
+
+> We recommend you to use **docker-compose-postgres**, because postgres has fewer issues than mysql
+
+You can also run the below command to fetch the docker compose file directly from the terminal
+
+```shell
+# get the OM 1.4.1 
+wget wget https://github.com/open-metadata/OpenMetadata/releases/download/1.4.1-release/docker-compose-postgres.yml
+```
+
 
 ## run the docker compose with custom env var
 

@@ -21,6 +21,8 @@ Below figure shows a classification of the existing solutions
 
 ![Metadata_management_tools_classification](https://raw.githubusercontent.com/pengfei99/DataCatalogPlayGround/master/img/Metadata_management_tools_classification.png)
 
+> I recently tested the Open Metadata solution. I highly recommend it. It has many advantages compare to `Apache Atlas`
+
 ### 1.1 The four age of the existing solution's evolution
 
 - Stone age: No software, people use pdf, excel, or other documents to describe the data. Everything is done manually. 

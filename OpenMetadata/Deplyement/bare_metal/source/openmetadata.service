@@ -1,0 +1,31 @@
+[Unit]
+Description=OpenMetadata Service
+After=network.target
+Wants=network-online.target
+Requires=postgresql.service elasticsearch.service
+
+[Service]
+Type=forking
+User=openmeta
+Group=openmeta
+WorkingDirectory=/opt/openmeta/openmetadata-1.9.0
+
+# Load env vars (your script should be KEY=VALUE pairs)
+EnvironmentFile=-/opt/openmeta/openmetadata-1.9.0/conf/openmetadata-env.sh
+
+# Start/stop commands
+ExecStart=/opt/openmeta/openmetadata-1.9.0/bin/openmetadata.sh start
+ExecStop=/opt/openmeta/openmetadata-1.9.0/bin/openmetadata.sh stop
+ExecReload=/opt/openmeta/openmetadata-1.9.0/bin/openmetadata.sh status
+ExecStartPre=/opt/openmeta/openmetadata-1.9.0/bin/openmetadata.sh clean
+
+# Restart policy
+Restart=on-failure
+RestartSec=5
+
+# Logging
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
